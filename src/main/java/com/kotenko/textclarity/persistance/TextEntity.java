@@ -1,4 +1,4 @@
 package com.kotenko.textclarity.persistance;
 
-public class Entity {
+public class TextEntity {
 }

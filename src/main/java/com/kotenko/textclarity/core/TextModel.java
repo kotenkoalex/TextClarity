@@ -1,4 +1,4 @@
 package com.kotenko.textclarity.core;
 
-public class Model {
+public class TextModel {
 }

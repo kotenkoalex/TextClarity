@@ -1,5 +1,5 @@
 package com.kotenko.textclarity.core;
 
-public interface MainAdapter {
+public interface TextAdapter {
     String firstFun();
 }
