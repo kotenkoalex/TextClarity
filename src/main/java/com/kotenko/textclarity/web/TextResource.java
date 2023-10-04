@@ -15,8 +15,13 @@ public class TextResource {
         this.textFacade = textFacade;
     }
 
+    @GetMapping("/{text}")
+    public List<String> lemmatizeTextGet(@PathVariable String text) {
+        return textFacade.getLemmas(text);
+    }
+
     @PostMapping
-    public List<String> lemmatizeText(@RequestBody String text) {
+    public List<String> lemmatizeTextPost(@RequestBody String text) {
         return textFacade.getLemmas(text);
     }
 }
