@@ -82,7 +82,7 @@
                 </configuration>
             </plugin>
         </plugins>
-        <finalName>spring-boot-docker</finalName>
+        <finalName>text-clarity-docker</finalName>
     </build>
 
 </project>
