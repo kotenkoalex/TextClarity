@@ -1,6 +1,7 @@
 package com.kotenko.textclarity.web;
 
 import com.kotenko.textclarity.core.TextFacade;
+import com.kotenko.textclarity.core.WordModel;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,12 +17,12 @@ public class TextResource {
     }
 
     @GetMapping("/{text}")
-    public List<String> lemmatizeTextGet(@PathVariable String text) {
-        return textFacade.getLemmas(text);
+    public List<WordModel> lemmatizeTextGet(@PathVariable String text) {
+        return textFacade.preparedLemmas(text);
     }
 
     @PostMapping
-    public List<String> lemmatizeTextPost(@RequestBody String text) {
-        return textFacade.getLemmas(text);
+    public List<WordModel> lemmatizeTextPost(@RequestBody String text) {
+        return textFacade.preparedLemmas(text);
     }
 }

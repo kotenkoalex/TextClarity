@@ -1,14 +1,12 @@
 package com.kotenko.textclarity.core;
 
+import com.kotenko.textclarity.persistance.Vocabulary;
 import edu.stanford.nlp.ling.CoreLabel;
 import edu.stanford.nlp.pipeline.CoreDocument;
 import edu.stanford.nlp.pipeline.StanfordCoreNLP;
 import org.springframework.stereotype.Component;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
-import java.util.Properties;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Component
@@ -26,7 +24,18 @@ public class TextFacade {
         this.textAdapter = textAdapter;
     }
 
-    public List<String> getLemmas(String text) {
+    public List<WordModel> preparedLemmas(String text) {
+        List<String> words = textAdapter.findAll().stream()
+                .map(Vocabulary::getWord)
+                .toList();
+        //filtered lemmas based on db data
+        return getLemmas(text).stream()
+                .filter(lemma -> !words.contains(lemma))
+                .map(WordModel::new)
+                .collect(Collectors.toList());
+    }
+
+    private List<String> getLemmas(String text) {
         //split to separate words
         List<String> words = Arrays.stream(text
                         .toLowerCase()
@@ -47,3 +56,5 @@ public class TextFacade {
                 .collect(Collectors.toList());
     }
 }
+
+
