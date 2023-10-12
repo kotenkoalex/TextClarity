@@ -1,6 +1,6 @@
 package com.kotenko.textclarity.core;
 
-import com.kotenko.textclarity.persistance.Vocabulary;
+import com.kotenko.textclarity.persistance.entity.Vocabulary;
 
 import java.util.List;
 
