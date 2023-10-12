@@ -17,10 +17,7 @@ import java.util.function.Function;
 @Service
 public class JwtService {
 
-    /**
-     * https://seanwasere.com/generate-random-hex/
-     */
-    private static final String SECRET_KEY = "c6f8e2773b8f0714235629772804b91bfecea6f6709c7763f2075f4514acdbd0";
+    private static final String SECRET_KEY = "secretsecretsecretsecretsecretsecretsecretsecretsecretsecretsecretsecret";
 
     public String extractUsername(String token) {
         return extractClaim(token, Claims::getSubject);
@@ -67,7 +64,7 @@ public class JwtService {
                 .parserBuilder()
                 .setSigningKey(getSignInKey())
                 .build()
-                .parseClaimsJwt(token)
+                .parseClaimsJws(token)
                 .getBody();
     }
 
