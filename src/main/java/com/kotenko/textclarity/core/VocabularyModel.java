@@ -1,9 +1,9 @@
 package com.kotenko.textclarity.core;
 
-public class WordModel {
+public class VocabularyModel {
     private String word;
 
-    public WordModel(String word) {
+    public VocabularyModel(String word) {
         this.word = word;
     }
 

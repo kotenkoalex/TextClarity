@@ -1,6 +1,6 @@
 package com.kotenko.textclarity.core;
 
-import com.kotenko.textclarity.persistance.Vocabulary;
+import com.kotenko.textclarity.persistance.entity.Vocabulary;
 import edu.stanford.nlp.ling.CoreLabel;
 import edu.stanford.nlp.pipeline.CoreDocument;
 import edu.stanford.nlp.pipeline.StanfordCoreNLP;
@@ -24,14 +24,14 @@ public class TextFacade {
         this.textAdapter = textAdapter;
     }
 
-    public List<WordModel> preparedLemmas(String text) {
+    public List<VocabularyModel> preparedLemmas(String text) {
         List<String> words = textAdapter.findAll().stream()
                 .map(Vocabulary::getWord)
                 .toList();
         //filtered lemmas based on db data
         return getLemmas(text).stream()
                 .filter(lemma -> !words.contains(lemma))
-                .map(WordModel::new)
+                .map(VocabularyModel::new)
                 .collect(Collectors.toList());
     }
 
