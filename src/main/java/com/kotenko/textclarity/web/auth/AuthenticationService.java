@@ -27,10 +27,11 @@ public class AuthenticationService {
                 .password(passwordEncoder.encode(request.getPassword()))
                 .role(Role.USER)
                 .build();
+        if (repository.findByEmail(user.getEmail()).isPresent()) {
+            throw new RuntimeException("User already exists");
+        }
         repository.save(user);
-        var jwtToken = jwtService.generateToken(user);
         return AuthenticationResponse.builder()
-                .token(jwtToken)
                 .build();
     }
 
