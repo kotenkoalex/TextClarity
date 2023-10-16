@@ -21,8 +21,8 @@ server:
 spring:
   datasource:
     url: jdbc:mysql://textclarity-do-user-14753211-0.b.db.ondigitalocean.com:25060/textclarity
-    username: doadmin
-    password: AVNS_DJoHmEY-rPv7HHR56Hz
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     hibernate:
