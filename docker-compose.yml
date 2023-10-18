@@ -3,7 +3,6 @@ services:
   database:
     image: mysql:8.0
     environment:
-      MYSQL_USER: ${MYSQL_USER_DOCKER_LOCALHOST}
       MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD_DOCKER_LOCALHOST}
       MYSQL_DATABASE: ${MYSQL_DB_NAME_DOCKER_LOCALHOST}
     volumes:
