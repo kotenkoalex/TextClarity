@@ -1,0 +1,23 @@
+version: '3'
+services:
+  database:
+    image: mysql:8.0
+    environment:
+      MYSQL_USER: ${MYSQL_USER_DOCKER_LOCALHOST}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD_DOCKER_LOCALHOST}
+      MYSQL_DATABASE: ${MYSQL_DB_NAME_DOCKER_LOCALHOST}
+    volumes:
+      - database:/var/lib/mysql
+    ports:
+      - "3206:3306"
+    restart: unless-stopped
+    container_name: mysql
+
+#  myapp:
+#    build:
+#      context: .
+#    ports:
+#      - "9090:8080"
+
+volumes:
+  database:

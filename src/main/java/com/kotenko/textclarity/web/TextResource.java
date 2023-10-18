@@ -2,19 +2,17 @@ package com.kotenko.textclarity.web;
 
 import com.kotenko.textclarity.core.TextFacade;
 import com.kotenko.textclarity.core.VocabularyModel;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/text")
+@RequiredArgsConstructor
 public class TextResource {
 
     private final TextFacade textFacade;
-
-    public TextResource(TextFacade textFacade) {
-        this.textFacade = textFacade;
-    }
 
     @GetMapping("/{text}")
     public List<VocabularyModel> lemmatizeTextGet(@PathVariable String text) {

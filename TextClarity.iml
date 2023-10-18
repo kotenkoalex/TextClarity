@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module version="4">
+  <component name="AdditionalModuleElements">
+    <content url="file://$MODULE_DIR$" dumb="true">
+      <excludeFolder url="file://$MODULE_DIR$/.idea/dataSources" />
+    </content>
+  </component>
   <component name="FacetManager">
     <facet type="jpa" name="JPA">
       <configuration>
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="Hibernate" />
         <datasource-mapping>
-          <factory-entry name="entityManagerFactory" value="ab998b60-17d6-46d0-af34-808be0d2e72e" />
+          <factory-entry name="entityManagerFactory" value="4a2eb555-f195-4478-8547-4b5ce61632c7" />
         </datasource-mapping>
         <naming-strategy-map />
       </configuration>
