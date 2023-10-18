@@ -4,12 +4,14 @@ import com.kotenko.textclarity.persistance.entity.Vocabulary;
 import edu.stanford.nlp.ling.CoreLabel;
 import edu.stanford.nlp.pipeline.CoreDocument;
 import edu.stanford.nlp.pipeline.StanfordCoreNLP;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
 @Component
+@RequiredArgsConstructor
 public class TextFacade {
     private final TextAdapter textAdapter;
     private static final StanfordCoreNLP pipeline = getStanfordCoreNLP();
@@ -18,10 +20,6 @@ public class TextFacade {
         Properties props = new Properties();
         props.setProperty("annotators", "tokenize,ssplit,pos,lemma");
         return new StanfordCoreNLP(props);
-    }
-
-    public TextFacade(TextAdapter textAdapter) {
-        this.textAdapter = textAdapter;
     }
 
     public List<VocabularyModel> preparedLemmas(String text) {
@@ -56,5 +54,3 @@ public class TextFacade {
                 .collect(Collectors.toList());
     }
 }
-
-
