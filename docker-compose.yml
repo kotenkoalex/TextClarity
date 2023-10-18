@@ -3,8 +3,8 @@ services:
   database:
     image: mysql:8.0
     environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD_DOCKER_LOCALHOST}
-      MYSQL_DATABASE: ${MYSQL_DB_NAME_DOCKER_LOCALHOST}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD_DOCKER_REMOTE}
+      MYSQL_DATABASE: ${MYSQL_DB_NAME_DOCKER_REMOTE}
     volumes:
       - database:/var/lib/mysql
     ports:
